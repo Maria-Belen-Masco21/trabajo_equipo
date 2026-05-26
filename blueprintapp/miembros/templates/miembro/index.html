@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm">
+<div class="card-header d-flex justify-content-between">
+<h3>Listado de Miembros</h3>
+<a href="{{ url_for('bp_miembro.create') }}" class="btn btn-primary">Nuevo</a>
+</div>
+<div class="card-body">
+<table class="table table-striped">
+<tr><th>ID</th><th>Nombre</th><th>Email</th><th>Acciones</th></tr>
+{% for miembro in miembros %}
+<tr>
+<td>{{ miembro.id }}</td>
+<td>{{ miembro.nombre }}</td>
+<td>{{ miembro.email }}</td>
+<td>
+<a href="{{ url_for('bp_miembro.edit', id=miembro.id) }}" class="btn btn-warning btn-sm">Editar</a>
+<a href="{{ url_for('bp_miembro.delete', id=miembro.id) }}" class="btn btn-danger btn-sm">Eliminar</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}

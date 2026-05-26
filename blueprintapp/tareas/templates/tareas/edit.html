@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header"><h3>Editar Tarea</h3></div>
+        <div class="card-body">
+            <form method="POST">
+                <div class="mb-3">
+                    <label>Descripción</label>
+                    <input type="text" name="descripcion" value="{{ tarea.descripcion }}" class="form-control" required>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" name="completado" class="form-check-input" {% if tarea.completado %}checked{% endif %}>
+                    <label class="form-check-label">Completado</label>
+                </div>
+                <button class="btn btn-warning">Actualizar</button>
+            </form>
+        </div>
+</div>
+{% endblock %}
